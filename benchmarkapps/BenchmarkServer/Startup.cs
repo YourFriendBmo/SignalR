@@ -20,7 +20,11 @@ namespace BenchmarkServer
         {
             app.UseSignalR(routes =>
             {
-                routes.MapHub<EchoHub>("/echo");
+                routes.MapHub<EchoHub>("/echo", o =>
+                {
+                    o.TransportMaxBufferSize = 0;
+                    o.ApplicationMaxBufferSize = 0;
+                });
             });
         }
     }
