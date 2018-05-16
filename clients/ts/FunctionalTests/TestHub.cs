@@ -83,5 +83,11 @@ namespace FunctionalTests
                 String = "hello world",
             };
         }
+        
+        public string GetContentTypeHeader()
+        {
+      var request = Context.GetHttpContext().Request;
+            return Context.GetHttpContext().Request.Headers["Content-Type"];
+        }
     }
 }
